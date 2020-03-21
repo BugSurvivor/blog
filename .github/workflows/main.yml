@@ -24,8 +24,8 @@ jobs:
     # Runs a single command using the runners shell
     - name: before_deploy
       run: |
-        git config.name jiandahao
-        git config.email jiandahao@gmail.com
+        git config user.name jiandahao
+        git config user.email jiandahao@gmail.com
         export TOKEN="${{ secrets.GITHUB_TOKEN }}" 
         sed -i "s/gh_token/${TOKEN}/g" ./_config.yml
     - name: deploy
