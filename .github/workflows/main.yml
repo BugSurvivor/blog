@@ -24,4 +24,9 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: deploy
-      run: docker run  --rm -v ${PWD}:/opt/project -w /opt/project jiandahao/hexo:v1.0 hexo generate && hexo deploy
+      run: |
+       export CURRENT=${PWD}
+       mkdir /tmp && cd /tmp && git clone --depth 1 https://github.com/BugSurvivor/bugsurvovir.github.io
+       cp ${CURRENT}/* /tmp/bugsurvovir.github.io/source/_posts
+       cd /tmp/bugsurvovir.github.io
+       docker run  --rm -v ${PWD}:/opt/project -w /opt/project jiandahao/hexo:v1.0 hexo generate && hexo deploy
