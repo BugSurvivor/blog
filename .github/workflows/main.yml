@@ -24,6 +24,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: before_deploy
       run: |
+        npm install hexo-cli -g
         git config user.name jiandahao
         git config user.email jiandahao@gmail.com
         export TOKEN="${{ secrets.GITHUB_TOKEN }}" 
@@ -31,6 +32,6 @@ jobs:
     - name: deploy
       run: |
        export CURRENT=${PWD}
-       mkdir -p ~/tmp/blog && docker run  --rm -v ~/tmp/blog:/opt/project -w /opt/project jiandahao/hexo:v1.0 hexo init
-       docker run  --rm -v ~/tmp/blog:/opt/project -v ${CURRENT}:/opt/project/source/_posts -w /opt/project jiandahao/hexo:v1.0 hexo generate
-       docker run  --rm -v ~/tmp/blog:/opt/project -v ${CURRENT}:/opt/project/source/_posts -w /opt/project jiandahao/hexo:v1.0 hexo deploy
+       mkdir -p ~/tmp/blog && docker run  --rm -v ~/tmp/blog:/opt/project -w /opt/project jiandahao/hexo:v1.1 hexo init
+       docker run  --rm -v ~/tmp/blog:/opt/project -v ${CURRENT}:/opt/project/source/_posts -w /opt/project jiandahao/hexo:v1.1 hexo generate
+       docker run  --rm -v ~/tmp/blog:/opt/project -v ${CURRENT}:/opt/project/source/_posts -w /opt/project jiandahao/hexo:v1.1 hexo deploy
