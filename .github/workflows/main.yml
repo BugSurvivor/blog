@@ -27,6 +27,4 @@ jobs:
       run: |
        export CURRENT=${PWD}
        mkdir -p ~/tmp/blog && docker run  --rm -v ~/tmp/blog:/opt/project -w /opt/project jiandahao/hexo:v1.0 hexo init
-       cp ./_config.yml ~/tmp/blog/
-       cp ${CURRENT}/* ~/tmp/blog/source/_posts
-       docker run  --rm -v ~/tmp/blog:/opt/project -w /opt/project jiandahao/hexo:v1.0 hexo generate && hexo deploy
+       docker run  --rm -v ~/tmp/blog:/opt/project -v ${CURRENT}:/opt/project/source/_posts -w /opt/project jiandahao/hexo:v1.0 hexo generate && hexo deploy
