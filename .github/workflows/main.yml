@@ -24,7 +24,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: before_deploy
       run: |
-        npm install hexo-cli -g
+        npm install hexo-cli
         git config user.name jiandahao
         git config user.email jiandahao@gmail.com
         export TOKEN="${{ secrets.GITHUB_TOKEN }}" 
