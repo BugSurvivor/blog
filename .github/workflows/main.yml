@@ -26,7 +26,8 @@ jobs:
     - name: deploy
       run: |
        export CURRENT=${PWD}
-       cd /tmp && git clone --depth 1 https://github.com/BugSurvivor/bugsurvovir.github.io
-       cp ${CURRENT}/* /tmp/bugsurvovir.github.io/source/_posts
-       cd /tmp/bugsurvovir.github.io
+       mkdir /tmp/blog && docker run  --rm -v /tmp/blog:/opt/project -w /opt/project jiandahao/hexo:v1.0 hexo init
+       cp ./_config.yml /tmp/blog/
+       cp ${CURRENT}/* /tmp/blog/source/_posts
+       cd /tmp/blog
        docker run  --rm -v ${PWD}:/opt/project -w /opt/project jiandahao/hexo:v1.0 hexo generate && hexo deploy
