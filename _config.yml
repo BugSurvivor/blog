@@ -100,5 +100,5 @@ theme: landscape
 deploy:
   type: git
   repository:
-    github: git@github.com:BugSurvivor/BugSurvivor.github.io.git
+    github: https://gh_token@github.com:BugSurvivor/BugSurvivor.github.io.git
   branch: master
