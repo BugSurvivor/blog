@@ -24,7 +24,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: before_deploy
       run: |
-        export TOKEN="${{ secrets.GITHUB_TOKEN }}" 
+        export TOKEN="${{ secrets.MY_TOKEN }}" 
         sed -i "s/gh_token/${TOKEN}/g" ./_config.yml
     - name: deploy
       run: |
