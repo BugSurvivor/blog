@@ -28,5 +28,5 @@ jobs:
         sed -i "s/gh_token/${TOKEN}/g" ./_config.yml
     - name: deploy
       run: |
-        docker run  --rm -v ${PWD}:/data -w / jiandahao/hexo:v1.1 sh /data/deploy.sh
+        docker run  --rm -v ${PWD}:/data -w / jiandahao/node-hexo-git:v1.0 sh /data/deploy.sh
      # docker run  --rm -v ${PWD}:/data -w / jiandahao/hexo:v1.1 sh /data/deploy.sh
